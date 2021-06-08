@@ -1,9 +1,10 @@
 package support;
 /*
-    acessar página  [Portal RCI](https://portal.bancorenault.com.br/)
+    US01: abrir o browser na tela inicial de direcionamento
  */
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.time.Duration;
 
 public class Web {
@@ -14,8 +15,10 @@ public class Web {
 
         navegador.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
+        //inserir link inicial da tela de direcionamento
         navegador.get("https://portal.bancorenault.com.br/");
 
         return navegador;
     }
+
 }

@@ -17,7 +17,7 @@ import support.Screenshot;
 import support.Web;
 
 
-public class ConexaoPageTest {
+public class ValidacaoPageTest {
     private WebDriver navegador;
 
     @Rule
@@ -41,6 +41,6 @@ public class ConexaoPageTest {
     }
 }
 
-//deve retornar portal privacytools contendo texto="PORTAL DE PRIVACIDADE" ou xpath
+
 
 
