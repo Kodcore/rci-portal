@@ -1,83 +1,101 @@
 **Funcionalidade**
 
-​	Como usuário do Portal RCI desejo receber e-mail com link de acesso para criar nova senha e acessar o portal de privacidade.
+	Como usuário do Portal RCI desejo redefinir minha senha para acessar o portal de privacidade, podendo ser através de link enviado para meu e-mail ou respondendo perguntas de segurança diretamente no site. 
 
 
 
-**Cenários:**
+**Fluxos:**
 
 	1. autenticação de nova senha por *e-mail*
 	2. autenticação de nova senha por questionário
 
 
 
-**@Pagina 01:** autenticação de nova senha por *e-mail*
+**Cenário:**
 
-- acessar página  [Portal RCI](https://portal.bancorenault.com.br/) 
-- retorna tela de login
-  - clicar no *link* “[Esqueceu sua senha? Clique aqui](https://portal.bancorenault.com.br/portal/indexRENAULT.html#esqueci_minha_senha)“
-  - retorna tela para solicitar a nova senha
-
-**@Pagina 02:** pagina index
-
-- no campo "identificação" informar email/cpf
-- marcar o checkpoint "não sou um robô"
-- clicar no botão "próximo"
-- retorna tela "siga os passos a seguir"
+Como usuário desejo redefinir minha senha respondendo perguntas de segurança para acessar o portal de privacidade.
 
 
 
-**@Pagina 03:** EsqueciMinhaSenhaPage
+**US 01:** como usuário desejo clicar no link de acesso ao portal do banco Renault/Nissan
 
-- na tela "siga os passos a seguir"
-- clicar no botão "voltar"
-- retorna tela de login
+**Dado** que estou na tela de <direcionamentoPortalBanco>
 
+**Quando** aciono o link *Iniciar Teste RENAULT*
 
-
-- clicar no link contido no email de recuperação de senha
-- deverá retornar a tela "redefina sua senha"
-- na tela "redefina sua senha"
+**Então deve** ser apresentada a tela <indexPortalBancoRenault>
 
 
 
-- na tela "redefina sua senha"
-- no campo "redefina sua senha" criar nova senha contendo:
-  - Letras maiúsculas e minúsculas
-  - Um número
-  - Um caracter especial
-  - Oito caracteres
-- no campo confirmação de senha, reinserir senha
-- clicar no botão "redefinir senha"
-- deverá retornar tela de mensagem: "Você redefiniu a senha com sucesso. Clique no botão abaixo para ir ao portal". 
-- clicar no botão "ir ao portal"
-- deverá retornar o portal *privacy tools*
+**US 02:** como usuário desejo acessar página de identificação para que possa solicitar redefinição de senha
+
+**Dado** que estou na tela de <indexBancoRenault>
+
+**Quando** aciono o link *Esqueceu sua senha? Clique aqui*
+
+**Então deve** ser apresentada a pagina <IdentificacaoDoUsuario>
 
 
 
-- na tela de *login*, no campo identificação inserir cpf/cnpj
-- no campo "insira sua senha", informe a nova senha
-- clicar no botão "entrar"
-- deverá retornar tela portal de privacidade
+**US 03:** como usuário desejo informar meu CPF/CNPJ para que possa solicitar redefinição de senha
+
+**Dado** que estou na tela de <IdentificacaoDoUsuario>
+
+**Quando** informo cpf/cnpj válido
+
+**E** marco o *checkpoint "Não sou um robô"* 
+
+**E** aciono o botão *PRÓXIMO*
+
+**Então deve** ser apresentada a pagina <InstrucaoRedefinirSenha>
 
 
 
+**US 04:** como usuário desejo escolher responder perguntas de segurança para que possa solicitar redefinição de senha 
+
+**Dado** que estou na tela de <InstrucaoRedefinirSenha>
+
+**Quando** aciono o link *Se preferir responda as perguntas de segurança agora e redefina sua senha."*
+
+**Então deve** ser apresentada a pagina <PerguntasDeSeguranca>
 
 
 
+**US 05:** como usuário desejo responder perguntas de segurança para que possa solicitar redefinição de senha 
 
-**Então** usuário deverá informar seu *login* e a nova senha criada
+**Dado** que estou na tela de <PerguntasDeSeguranca>
 
-**E** acionar o botão “Entrar“
+**E** que respondi a primeira pergunta corretamente
 
-**Então** o Portal RCI deverá liberar o *token* de acesso para o usuário logado e autenticá-lo
+**E** que respondi a segunda pergunta corretamente
 
-**E** **em seguida** o Portal RCI deverá redirecionar o usuário para o Portal de Privacidade
+**Quando** aciono o botão *RESPONDER*
 
-→ <a senha foi envia para o e-mail do usuário>
+**Então deve** ser apresentada a pagina <RedefinaSuaSenha>
 
-| a senha foi envia com erro
 
-| a senha não foi enviada
 
-| ocorreu erro sistêmico
+**US 06:** como usuário desejo redefinir minha senha para acessar o portal de privacidade 
+
+**Dado** que estou na tela de <RedefinaSuaSenha>
+
+**E** que no campo *INSIRA SUA SENHA* informei nova senha valida
+
+**E** que confirmei nova senha valida
+
+**Quando** aciono o botão *REDEFINIR SENHA*
+
+**Então deve** ser apresentada a pagina <Validacao>
+
+
+
+**US 07:** como usuário desejo ser redirecionado para o portal de privacidade após a redefinição de senha
+
+**Dado** que estou na tela de <Validacao>
+
+**E** que minha senha foi redefinida com sucesso
+
+**Quando** aciono o botão *IR PRA O PORTAL*
+
+**Então deve** ser apresentada a pagina <PortalPrivacyTools>
+
